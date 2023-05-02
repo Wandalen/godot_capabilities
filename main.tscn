@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dndnyrnufasao"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_tgru2"]
+[ext_resource type="PackedScene" uid="uid://dok2r1wrh4tuh" path="res://PlayerCharacter.tscn" id="1_x4l6x"]
+[ext_resource type="PackedScene" uid="uid://bi117snka66p6" path="res://Projectile.tscn" id="2_5xxuh"]
+[ext_resource type="PackedScene" uid="uid://b2t47a6leps0b" path="res://EnemyCharacter.tscn" id="3_qorol"]
+[ext_resource type="AudioStream" uid="uid://dtkq0x4bqgsq3" path="res://asset/cobra.mp3" id="5_wu8a2"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_tgru2")
+
+[node name="PlayerCharacter1" parent="." groups=["player"] instance=ExtResource("1_x4l6x")]
+position = Vector2(59, 52)
+ProjectileType = ExtResource("2_5xxuh")
+
+[node name="EnemyCharacter1" parent="." groups=["enemy"] instance=ExtResource("3_qorol")]
+position = Vector2(1115, 609)
+
+[node name="EnemySpawnZones" type="Marker2D" parent="."]
+
+[node name="nn" type="Marker2D" parent="EnemySpawnZones"]
+position = Vector2(-28, -30)
+
+[node name="pp" type="Marker2D" parent="EnemySpawnZones"]
+position = Vector2(1179, 676)
+
+[node name="pn" type="Marker2D" parent="EnemySpawnZones"]
+position = Vector2(1181, -36)
+
+[node name="np" type="Marker2D" parent="EnemySpawnZones"]
+position = Vector2(-31, 687)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wu8a2")
+volume_db = -10.0
+autoplay = true

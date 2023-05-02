@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2t47a6leps0b"]
+
+[ext_resource type="Script" path="res://EnemyCharacter.gd" id="1_mvgxo"]
+[ext_resource type="Texture2D" uid="uid://ost3lh83ejgp" path="res://asset/tank.png" id="2_cjcig"]
+[ext_resource type="AudioStream" uid="uid://qjs2uqbldany" path="res://asset/explosion.mp3" id="3_1t46l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wg7gh"]
+size = Vector2(70, 42)
+
+[node name="EnemyCharacter" type="CharacterBody2D"]
+script = ExtResource("1_mvgxo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wg7gh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_cjcig")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1t46l")

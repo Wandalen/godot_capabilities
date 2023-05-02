@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dok2r1wrh4tuh"]
+
+[ext_resource type="Script" path="res://PlayerCharacter.gd" id="1_dgu6p"]
+[ext_resource type="Texture2D" uid="uid://ost3lh83ejgp" path="res://asset/tank.png" id="2_1gy1c"]
+[ext_resource type="AudioStream" uid="uid://dqil40gsm80lj" path="res://asset/shoot.mp3" id="3_42pys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wg7gh"]
+size = Vector2(71.5, 52)
+
+[node name="PlayerCharacter" type="CharacterBody2D"]
+up_direction = Vector2(1, 0)
+script = ExtResource("1_dgu6p")
+SpeedMultiplier = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wg7gh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0.266667, 1)
+rotation = 1.5708
+scale = Vector2(0.231813, 0.231813)
+texture = ExtResource("2_1gy1c")
+region_filter_clip_enabled = true
+
+[node name="ProjectileMarker" type="Marker2D" parent="."]
+position = Vector2(39, 0)
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_42pys")
+volume_db = -3.0
+max_polyphony = 9
